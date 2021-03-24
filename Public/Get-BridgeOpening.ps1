@@ -16,6 +16,6 @@ function Get-BridgeOpening
         | jq '[.[0].children[] | {FromText: .children[0].text, ToText: .children[1].text, DurationText: .children[2].text, Reason: .children[3].text}]'
         | ConvertFrom-Json
         | Add-Member -NotePropertyName Bridge -NotePropertyValue $CurrentBridge -PassThru
-        | ForEach-Object { $_.PSTypeNames.Insert(0, 'UncommonSense.Bridges.BridgeOpening'); $_ }
+        | ForEach-Object { $_.PSTypeNames.Insert(0, 'UncommonSense.BridgeOpenings.BridgeOpening'); $_ }
 }
 }
