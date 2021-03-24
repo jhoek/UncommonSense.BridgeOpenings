@@ -13,20 +13,6 @@ Foreach ($import in @($Private + $Public))
     }
 }
 
-class Bridge
-{
-    Bridge([string]$ID, [string]$Name, [string]$Location)
-    {
-        $this.ID = $ID
-        $this.Name = $Name
-        $this.Location = $Location
-    }
-
-    [string]$ID
-    [string]$Name
-    [string]$Location
-}
-
 Register-ArgumentCompleter `
     -CommandName 'Get-BridgeOpening' `
     -ParameterName 'Bridge' `
