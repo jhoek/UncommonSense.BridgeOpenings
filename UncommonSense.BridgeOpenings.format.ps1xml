@@ -1,0 +1,36 @@
+<Configuration>
+    <ViewDefinitions>
+        <View>
+            <Name>Default</Name>
+            <ViewSelectedBy>
+                <TypeName>UncommonSense.BridgeOpenings.BridgeOpening</TypeName>
+            </ViewSelectedBy>
+            <TableControl>
+                <TableHeaders>
+
+                </TableHeaders>
+                <TableRowEntries>
+                    <TableRowEntry>
+                        <TableColumnItems>
+                            <TableColumnItem>
+                                <PropertyName>Bridge</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>FromText</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>ToText</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>DurationText</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>Reason</PropertyName>
+                            </TableColumnItem>
+                        </TableColumnItems>
+                    </TableRowEntry>
+                </TableRowEntries>
+            </TableControl>
+        </View>
+    </ViewDefinitions>
+</Configuration>
