@@ -15,7 +15,8 @@ function Get-BridgeOpening
         | pup '.lastoperations tbody json{}' --plain
         | jq '[.[0].children[] | {FromText: .children[0].text, ToText: .children[1].text, DurationText: .children[2].text, Reason: .children[3].text}]'
         | ConvertFrom-Json
-        | Add-Member -NotePropertyName Bridge -NotePropertyValue $CurrentBridge -PassThru
         | ForEach-Object { $_.PSTypeNames.Insert(0, 'UncommonSense.BridgeOpenings.BridgeOpening'); $_ }
+        | Foreach-Object { $_ | Add-FromAndToDate }
+        | Add-Member -NotePropertyName Bridge -NotePropertyValue $CurrentBridge -PassThru
 }
 }
