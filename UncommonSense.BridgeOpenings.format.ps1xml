@@ -5,21 +5,20 @@
             <ViewSelectedBy>
                 <TypeName>UncommonSense.BridgeOpenings.BridgeOpening</TypeName>
             </ViewSelectedBy>
+            <GroupBy>
+                <PropertyName>Bridge</PropertyName>
+            </GroupBy>
             <TableControl>
-                <TableHeaders>
-
-                </TableHeaders>
                 <TableRowEntries>
                     <TableRowEntry>
                         <TableColumnItems>
                             <TableColumnItem>
-                                <PropertyName>Bridge</PropertyName>
+                                <PropertyName>From</PropertyName>
+                                <FormatString>g</FormatString>
                             </TableColumnItem>
                             <TableColumnItem>
-                                <PropertyName>FromText</PropertyName>
-                            </TableColumnItem>
-                            <TableColumnItem>
-                                <PropertyName>ToText</PropertyName>
+                                <PropertyName>To</PropertyName>
+                                <FormatString>g</FormatString>
                             </TableColumnItem>
                             <TableColumnItem>
                                 <PropertyName>DurationText</PropertyName>
