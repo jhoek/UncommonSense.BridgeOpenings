@@ -63,5 +63,34 @@
                 </TableRowEntries>
             </TableControl>
         </View>
+
+        <View>
+            <Name>Default</Name>
+            <ViewSelectedBy>
+                <TypeName>UncommonSense.BridgeOpenings.CurrentlyOpenBridge</TypeName>
+            </ViewSelectedBy>
+            <TableControl>
+                <TableRowEntries>
+                    <TableRowEntry>
+                        <TableColumnItems>
+                            <TableColumnItem>
+                                <PropertyName>BridgeID</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>BridgeName</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <FormatString>g</FormatString>
+                                <PropertyName>Since</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <Alignment>Right</Alignment>
+                                <PropertyName>Duration</PropertyName>
+                            </TableColumnItem>
+                        </TableColumnItems>
+                    </TableRowEntry>
+                </TableRowEntries>
+            </TableControl>
+        </View>
     </ViewDefinitions>
 </Configuration>
