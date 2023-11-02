@@ -1,5 +1,3 @@
-# FIXME: Unit tests
-
 function ConvertTo-DateTime
 {
     [OutputType([Nullable[datetime]])]
@@ -28,7 +26,7 @@ function ConvertTo-DateTime
 
         '^(?<Day>\d{2})-(?<Month>\d{2})$'
         {
-            return Get-Date -Month $Matches.Month -Day $Matches.Day -Hour 0 -Minute 0 -Second 0 -MilliSecond 0
+            return Get-Date -Month $Matches.Month -Day $Matches.Day -Hour 0 -Minute 0 -Second 0 -Millisecond 0
         }
 
         '^(?<Hour>\d{2}):(?<Minute>\d{2})$'
