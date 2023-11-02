@@ -11,3 +11,5 @@ function Get-Bridge
     | ConvertFrom-Json
     | ForEach-Object { $_.PSTypeNames.Insert(0, 'UncommonSense.BridgeOpenings.Bridge'); $_ }
 }
+
+# FIXME: Lat/long? toevoegen
