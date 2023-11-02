@@ -31,5 +31,37 @@
                 </TableRowEntries>
             </TableControl>
         </View>
+
+        <View>
+            <Name>Default</Name>
+            <ViewSelectedBy>
+                <TypeName>UncommonSense.BridgeOpenings.Bridge</TypeName>
+            </ViewSelectedBy>
+            <TableControl>
+                <TableRowEntries>
+                    <TableRowEntry>
+                        <TableColumnItems>
+                            <TableColumnItem>
+                                <PropertyName>ID</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>Name</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>Location</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <Alignment>Right</Alignment>
+                                <PropertyName>Latitude</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <Alignment>Right</Alignment>
+                                <PropertyName>Longitude</PropertyName>
+                            </TableColumnItem>
+                        </TableColumnItems>
+                    </TableRowEntry>
+                </TableRowEntries>
+            </TableControl>
+        </View>
     </ViewDefinitions>
 </Configuration>
