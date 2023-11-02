@@ -13,3 +13,5 @@ function Get-CurrentlyOpenBridge
     | ForEach-Object { $_.Bridge = $_.Bridge -replace '^/', '' -replace '/$', ''; $_ }
     | ForEach-Object { $_.PSTypeNames.Insert(0, 'UncommonSense.BridgeOpenings.CurrentlyOpenBridge'); $_ }
 }
+
+# FIXME: Formatting file for this type
