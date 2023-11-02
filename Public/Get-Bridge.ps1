@@ -1,5 +1,6 @@
 function Get-Bridge
 {
+    [CmdletBinding()]
     param
     (
     )
