@@ -10,13 +10,21 @@ function Get-BridgeOpening
         $CurrentBridge = $_
         $Url = "https://brugopen.nl/$CurrentBridge"
 
-        Invoke-WebRequest -Uri $Url
-        | Select-Object -ExpandProperty Content
-        | pup '.lastoperations tbody json{}' --plain
-        | jq '[.[0].children[] | {FromText: .children[0].text, ToText: .children[1].text, DurationText: .children[2].text, Reason: .children[3].text}]'
-        | ConvertFrom-Json
-        | ForEach-Object { $_.PSTypeNames.Insert(0, 'UncommonSense.BridgeOpenings.BridgeOpening'); $_ }
-        | Foreach-Object { $_ | Add-FromAndToDate }
-        | Add-Member -NotePropertyName Bridge -NotePropertyValue $CurrentBridge -PassThru
-}
+        ConvertTo-HtmlDocument -Uri $Url
+        | Select-HtmlNode -CssSelector '.lastoperations tbody tr' -All
+        | ForEach-Object {
+            $Th = $_ | Select-HtmlNode -CssSelector 'th' -All
+            $Td = $_ | Select-HtmlNode -CssSelector 'td' -All
+
+            [pscustomobject]@{
+                PSTypeName   = 'UncommonSense.BridgeOpenings.BridgeOpening'
+                Bridge       = $CurrentBridge
+                FromText     = $Th[0] | Get-HtmlNodeText
+                ToText       = $Th[1] | Get-HtmlNodeText
+                DurationText = $Td[0] | Get-HtmlNodeText
+                Reason       = $Td[1] | Get-HtmlNodeText
+            }
+        }
+        | ForEach-Object { $_ | Add-FromAndToDate }
+    }
 }
