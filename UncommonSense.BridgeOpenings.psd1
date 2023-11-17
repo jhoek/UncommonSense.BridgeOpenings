@@ -30,7 +30,7 @@
     Copyright         = 'Copyright (c) 2021 Jan Hoek'
 
     # Description of the functionality provided by this module
-    # Description = ''
+    Description       = 'PowerShell module to retrieve information about (a selection of) Dutch bridges from brugopen.nl'
 
     # Minimum version of the PowerShell engine required by this module
     # PowerShellVersion = ''
@@ -95,7 +95,7 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            # Tags = @()
+            Tags = @('dutch', 'bridge', 'traffic', 'nl')
 
             # A URL to the license for this module.
             # LicenseUri = ''
