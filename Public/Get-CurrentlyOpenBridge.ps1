@@ -4,12 +4,19 @@ function Get-CurrentlyOpenBridge
     (
     )
 
-    Invoke-WebRequest 'https://brugopen.nl'
-    | Select-Object -ExpandProperty Content
-    | pup '#openbridges li json{}' --plain
-    | jq '[ .[] | { BridgeID: .children[0].href, BridgeName: .children[0].text, SinceText: .children[1].text, Duration: .children[2].text }]'
-    | ConvertFrom-Json
-    | ForEach-Object { $_ | Add-Member -NotePropertyName Since -NotePropertyValue (ConvertTo-DateTime -InputObject $_.SinceText) -PassThru }
-    | ForEach-Object { $_.BridgeID = $_.BridgeID -replace '^/', '' -replace '/$', ''; $_ }
-    | ForEach-Object { $_.PSTypeNames.Insert(0, 'UncommonSense.BridgeOpenings.CurrentlyOpenBridge'); $_ }
+    ConvertTo-HtmlDocument -Uri 'https://brugopen.nl'
+    | Select-HtmlNode -CssSelector '#openbridges li' -All
+    | ForEach-Object {
+        $Link = $_ | Select-HtmlNode -CssSelector 'a'
+        $SinceText = $_ | Select-HtmlNode -CssSelector '.openSince' | Get-HtmlNodeText
+
+        [pscustomobject]@{
+            PSTypeName = 'UncommonSense.BridgeOpenings.CurrentlyOpenBridge'
+            BridgeID   = $Link.GetAttributeValue('href', '') -replace '^/', '' -replace '/$', ''
+            BridgeName = $Link | Get-HtmlNodeText
+            SinceText = $SinceText
+            Since  = (ConvertTo-DateTime -InputObject $SinceText)
+            Duration = $_ | Select-HtmlNode -CssSelector '.duration' | Get-HtmlNodeText
+        }
+    }
 }
