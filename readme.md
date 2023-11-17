@@ -1,7 +1,5 @@
 # UncommonSense.BridgeOpenings
 
-Requires `pup` (for HTML parsing) and `jq` (for JSON parsing).
-
 ## Index
 
 | Command                                             | Synopsis                                                    |
