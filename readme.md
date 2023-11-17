@@ -1,12 +1,14 @@
 # UncommonSense.BridgeOpenings
 
+Requires `pup` (for HTML parsing) and `jq` (for JSON parsing).
+
 ## Index
 
-| Command | Synopsis |
-| ------- | -------- |
-| [Get-Bridge](#Get-Bridge) | Get-Bridge [<CommonParameters>] |
-| [Get-BridgeOpening](#Get-BridgeOpening) | Get-BridgeOpening [-Bridge] <string[]> [<CommonParameters>] |
-| [Get-CurrentlyOpenBridge](#Get-CurrentlyOpenBridge) | Get-CurrentlyOpenBridge |
+| Command                                             | Synopsis                                                    |
+| --------------------------------------------------- | ----------------------------------------------------------- |
+| [Get-Bridge](#Get-Bridge)                           | Get-Bridge [<CommonParameters>]                             |
+| [Get-BridgeOpening](#Get-BridgeOpening)             | Get-BridgeOpening [-Bridge] <string[]> [<CommonParameters>] |
+| [Get-CurrentlyOpenBridge](#Get-CurrentlyOpenBridge) | Get-CurrentlyOpenBridge                                     |
 
 <a name="Get-Bridge"></a>
 ## Get-Bridge
@@ -27,7 +29,7 @@ Get-BridgeOpening [-Bridge] <string[]> [<CommonParameters>]
 ```
 ### Parameters
 #### Bridge &lt;string[]&gt;
-    
+
     Required?                    true
     Position?                    0
     Accept pipeline input?       true (ByValue)
