@@ -2,6 +2,10 @@
 
 PowerShell module to retrieve information about (a selection of) Dutch bridges from brugopen.nl
 
+## Requirements
+
+Requires UncommonSense.Hap, a PowerShell wrapper for the HTML Agility Pack.
+
 ## Index
 
 | Command | Synopsis |
@@ -42,4 +46,4 @@ Retrieves a list of currently open bridges
 ```powershell
 Get-CurrentlyOpenBridge
 ```
-<div style='font-size:small; color: #ccc'>Generated 29-08-2024 19:03</div>
+<div style='font-size:small; color: #ccc'>Generated 29-08-2024 19:05</div>
