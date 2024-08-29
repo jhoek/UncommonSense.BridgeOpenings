@@ -2,7 +2,8 @@ function Get-BridgeOpening
 {
     param
     (
-        [Parameter(Mandatory, ValueFromPipeline)]
+        [Parameter(Mandatory, ValueFromPipeline, ValueFromPipelineByPropertyName)]
+        [Alias('ID')]
         [string[]]$Bridge
     )
 
