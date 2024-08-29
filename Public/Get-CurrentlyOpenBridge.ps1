@@ -8,7 +8,7 @@ function Get-CurrentlyOpenBridge
     | Select-HtmlNode -CssSelector '#openbridges li' -All
     | ForEach-Object {
         $Link = $_ | Select-HtmlNode -CssSelector 'a'
-        $SinceText = $_ | Select-HtmlNode -CssSelector '.openSince' | Get-HtmlNodeText
+        $SinceText = (($_ | Get-HtmlNodeText -DirectInnerTextOnly) -split 'open sinds ')[1] -replace '\s\(\)$', ''
 
         [pscustomobject]@{
             PSTypeName = 'UncommonSense.BridgeOpenings.CurrentlyOpenBridge'

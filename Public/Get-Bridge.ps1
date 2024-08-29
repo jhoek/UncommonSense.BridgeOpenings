@@ -5,15 +5,16 @@ function Get-Bridge
     (
     )
 
-    $Properties = @{
-    #         ID         = ($_ | Select-HtmlNode -CssSelector 'a').GetAttributeValue('href', '')
-    #         Name       = $_ | Select-HtmlNode -CssSelector 'a' | Get-HtmlNodeText
-    #         Location   = $_ | Get-HtmlNodeText
-    #         Latitude   = ($_ | Select-HtmlNode -CssSelector 'span.latitude span.value-title').GetAttributeValue('title','')
-    #         Longitude  = ($_ | Select-HtmlNode -CssSelector 'span.longitude span.value-title').GetAttributeValue('title', '')
-    }
-
     ConvertTo-HtmlDocument -Uri 'https://brugopen.nl'
     | Select-HtmlNode -CssSelector '#allbridges th' -All
-    | Convert-HtmlNode -Property @Properties -Mode CssSelector -TypeName UncommonSense.BridgeOpenings.Bridge
+    | ForEach-Object {
+        [pscustomobject]@{
+            PSTypeName = 'UncommonSense.BridgeOpenings.Bridge'
+            ID = ($_ | Select-HtmlNode -CssSelector 'a').Attributes['href'].Value
+            Name = $_ | Select-HtmlNode -CssSelector 'a' | Get-HtmlNodeText
+            Location = $_ | Get-HtmlNodeText -DirectInnerTextOnly
+            Latitude = (($_ | Select-HtmlNode -CssSelector 'a').Attributes['data-latlng'].Value -split ',')[0]
+            Longitude = (($_ | Select-HtmlNode -CssSelector 'a').Attributes['data-latlng'].Value -split ',')[1]
+        }
+    }
 }
