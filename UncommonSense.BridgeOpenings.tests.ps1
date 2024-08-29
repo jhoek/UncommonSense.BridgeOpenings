@@ -1,4 +1,8 @@
 Describe 'UncommonSense.BridgeOpenings' {
+    BeforeAll {
+        Import-Module $PSScriptRoot/UncommonSense.BridgeOpenings.psd1 -Force
+    }
+
     Context 'ConvertTo-DateTime' {
         BeforeAll {
             . ./Private/ConvertTo-DateTime.ps1
@@ -25,6 +29,29 @@ Describe 'UncommonSense.BridgeOpenings' {
 
         It 'Returns null on empty input if -AllowBlank is set' {
             ConvertTo-DateTime -InputObject '' -AllowBlank | Should -Be $null
+        }
+    }
+
+    Context 'Get-Bridge' {
+        BeforeAll {
+            $Result = Get-Bridge
+        }
+
+        It 'All bridges have a valid ID' {
+            $Result | Where-Object { -not $_.ID } | Should -HaveCount 0
+        }
+
+        It 'All bridges have a valid name' {
+            $Result | Where-Object { -not $_.Name } | Should -HaveCount 0
+        }
+
+        It 'All bridges have a valid location' {
+            $Result | Where-Object { -not $_.Location } | Should -HaveCount 0
+        }
+
+        It 'All bridges should have a valid latitude/longitude' {
+            $Result | Where-Object { -not $_.Latitude } | Should -HaveCount 0
+            $Result | Where-Object { -not $_.Longitude } | Should -HaveCount 0
         }
     }
 }
