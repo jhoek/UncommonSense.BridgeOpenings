@@ -5,10 +5,16 @@ function Get-Bridge
     (
     )
 
-    Invoke-WebRequest 'https://brugopen.nl'
-    | Select-Object -ExpandProperty Content
-    | pup '#allbridges th json{}' --plain
-    | jq '[ .[] | { ID: .children[0].href, Name: .children[0].children[0].text, Location: .text, Latitude: .children[0].children[0].children[0].children[0].title, Longitude: .children[0].children[0].children[1].children[0].title }]'
-    | ConvertFrom-Json
-    | ForEach-Object { $_.PSTypeNames.Insert(0, 'UncommonSense.BridgeOpenings.Bridge'); $_ }
+    ConvertTo-HtmlDocument -Uri 'https://brugopen.nl'
+    | Select-HtmlNode -CssSelector '#allbridges th' -All
+    | ForEach-Object {
+        [pscustomobject]@{
+            PSTypeName = 'UncommonSense.BridgeOpenings.Bridge'
+            ID = ($_ | Select-HtmlNode -CssSelector 'a').Attributes['href'].Value
+            Name = $_ | Select-HtmlNode -CssSelector 'a' | Get-HtmlNodeText
+            Location = $_ | Get-HtmlNodeText -DirectInnerTextOnly
+            Latitude = (($_ | Select-HtmlNode -CssSelector 'a').Attributes['data-latlng'].Value -split ',')[0]
+            Longitude = (($_ | Select-HtmlNode -CssSelector 'a').Attributes['data-latlng'].Value -split ',')[1]
+        }
+    }
 }

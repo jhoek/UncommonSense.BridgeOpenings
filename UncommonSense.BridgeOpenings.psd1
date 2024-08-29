@@ -12,7 +12,7 @@
     RootModule        = 'UncommonSense.BridgeOpenings.psm1'
 
     # Version number of this module.
-    ModuleVersion     = '0.1.1'
+    ModuleVersion     = '0.2.0'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -51,7 +51,7 @@
     # ProcessorArchitecture = ''
 
     # Modules that must be imported into the global environment prior to importing this module
-    # RequiredModules = @()
+    RequiredModules   = @('UncommonSense.Hap')
 
     # Assemblies that must be loaded prior to importing this module
     # RequiredAssemblies = @()
@@ -95,13 +95,13 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags       = @('dutch', 'bridge', 'traffic', 'nl')
+            Tags                       = @('dutch', 'bridge', 'traffic', 'nl')
 
             # A URL to the license for this module.
-            LicenseUri = 'https://raw.githubusercontent.com/jhoek/UncommonSense.BridgeOpenings/master/LICENSE'
+            LicenseUri                 = 'https://raw.githubusercontent.com/jhoek/UncommonSense.BridgeOpenings/master/LICENSE'
 
             # A URL to the main website for this project.
-            ProjectUri = 'https://github.com/jhoek/UncommonSense.BridgeOpenings'
+            ProjectUri                 = 'https://github.com/jhoek/UncommonSense.BridgeOpenings'
 
             # A URL to an icon representing this module.
             # IconUri = ''
@@ -116,7 +116,7 @@
             # RequireLicenseAcceptance = $false
 
             # External dependent modules of this module
-            # ExternalModuleDependencies = @()
+            ExternalModuleDependencies = @('UncommonSense.Hap')
 
         } # End of PSData hashtable
 
