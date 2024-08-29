@@ -1,3 +1,7 @@
+<#
+.SYNOPSIS
+Retrieves recent bridge openings
+#>
 function Get-BridgeOpening
 {
     param

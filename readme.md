@@ -1,47 +1,45 @@
 # UncommonSense.BridgeOpenings
 
+PowerShell module to retrieve information about (a selection of) Dutch bridges from brugopen.nl
+
 ## Index
 
-| Command                                             | Synopsis                                                    |
-| --------------------------------------------------- | ----------------------------------------------------------- |
-| [Get-Bridge](#Get-Bridge)                           | Get-Bridge [<CommonParameters>]                             |
-| [Get-BridgeOpening](#Get-BridgeOpening)             | Get-BridgeOpening [-Bridge] <string[]> [<CommonParameters>] |
-| [Get-CurrentlyOpenBridge](#Get-CurrentlyOpenBridge) | Get-CurrentlyOpenBridge                                     |
+| Command | Synopsis |
+| ------- | -------- |
+| [Get-Bridge](#Get-Bridge) | Retrieves a list of all bridges |
+| [Get-BridgeOpening](#Get-BridgeOpening) | Retrieves recent bridge openings |
+| [Get-CurrentlyOpenBridge](#Get-CurrentlyOpenBridge) | Retrieves a list of currently open bridges |
 
 <a name="Get-Bridge"></a>
 ## Get-Bridge
 ### Synopsis
-Get-Bridge [<CommonParameters>]
+Retrieves a list of all bridges
 ### Syntax
 ```powershell
 Get-Bridge [<CommonParameters>]
 ```
-### Parameters
 <a name="Get-BridgeOpening"></a>
 ## Get-BridgeOpening
 ### Synopsis
-Get-BridgeOpening [-Bridge] <string[]> [<CommonParameters>]
+Retrieves recent bridge openings
 ### Syntax
 ```powershell
 Get-BridgeOpening [-Bridge] <string[]> [<CommonParameters>]
 ```
 ### Parameters
-#### Bridge &lt;string[]&gt;
-
+#### Bridge &lt;String[]&gt;
+    
     Required?                    true
-    Position?                    0
-    Accept pipeline input?       true (ByValue)
-    Parameter set name           (All)
-    Aliases                      None
-    Dynamic?                     false
+    Position?                    1
+    Default value                
+    Accept pipeline input?       true (ByValue, ByPropertyName)
     Accept wildcard characters?  false
 <a name="Get-CurrentlyOpenBridge"></a>
 ## Get-CurrentlyOpenBridge
 ### Synopsis
-Get-CurrentlyOpenBridge
+Retrieves a list of currently open bridges
 ### Syntax
 ```powershell
 Get-CurrentlyOpenBridge
 ```
-### Parameters
-<div style='font-size:small; color: #ccc'>Generated 17-11-2023 10:59</div>
+<div style='font-size:small; color: #ccc'>Generated 29-08-2024 19:03</div>

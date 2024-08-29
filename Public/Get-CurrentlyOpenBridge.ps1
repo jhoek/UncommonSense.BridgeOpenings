@@ -1,3 +1,7 @@
+<#
+.SYNOPSIS
+Retrieves a list of currently open bridges
+#>
 function Get-CurrentlyOpenBridge
 {
     param
@@ -14,9 +18,9 @@ function Get-CurrentlyOpenBridge
             PSTypeName = 'UncommonSense.BridgeOpenings.CurrentlyOpenBridge'
             BridgeID   = $Link.GetAttributeValue('href', '') -replace '^/', '' -replace '/$', ''
             BridgeName = $Link | Get-HtmlNodeText
-            SinceText = $SinceText
-            Since  = (ConvertTo-DateTime -InputObject $SinceText)
-            Duration = $_ | Select-HtmlNode -CssSelector '.duration' | Get-HtmlNodeText
+            SinceText  = $SinceText
+            Since      = (ConvertTo-DateTime -InputObject $SinceText)
+            Duration   = $_ | Select-HtmlNode -CssSelector '.duration' | Get-HtmlNodeText
         }
     }
 }
